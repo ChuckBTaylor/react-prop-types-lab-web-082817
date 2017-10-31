@@ -21,13 +21,19 @@ Product.propTypes = {
   color: PropTypes.oneOf(['salmon', 'eggshell-white', 'white']).isRequired,
   weight: function(props, propName, componentName){
     if(props[propName] === undefined){
-      return new Error("")
+      return new Error("Error")
     }
     if(isNaN(props[propName])){
-      return new Error("")
+      return new Error("Error")
     }
-    if(props[propName] > 300 || props[propName] < 80){
-      return new Error("")
+    if(typeof(props[propName]) !== 'number'){
+      return new Error("Error")
+    }
+    if(props[propName] >= 300){
+      return new Error("Error")
+    }
+    if(props[propName] <= 80){
+      return new Error("Error")
     }
   }
 };
